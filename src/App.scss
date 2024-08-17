@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+@mixin hover-effect {
+    &:hover {
+        background-color: #e6e6e6;
+        color: #000;
+        cursor: pointer;
+    }
+}
+@mixin day-block {
+    width: 50px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    height: 44px;
+    margin-bottom: 16px;
+}
+.body {
+    width: 350px;
+    max-height: 240px;
+    font-size: 16px;
+}
+.week {
+    display: flex;
+}
+.day {
+    @include day-block;
+    @include hover-effect;
+}
+.today {
+    @include day-block;
+    background-color: #ffff76;
+}
+.not-current-month {
+    @include day-block;
+    background-color: #fff;
+    color: #757575;
+    &:hover {
+        cursor: not-allowed;
+        background-color: unset;
+        color: #757575;
+    }
+}
+.selected, .between {
+    background-color: #006edc;
+    color: #fff;
+}
+
+.previous, .next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    @include hover-effect;
+}
+
